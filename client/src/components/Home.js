@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-scroll';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Hero from '../layout/Hero';
 
@@ -19,32 +19,36 @@ export default function Home() {
             </p>
             <div className='flex space-x-4'>
                 <div>
-                <button className='group text-white w-fit px-6 py-3 my-2 flex items-center
-                rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer md:text-base
-                '>
-                    portfolio
-                    <span className='group-hover:rotate-90 duration-300'> 
-                    <MdKeyboardArrowRight size={25} className='ml-1'/>
-                    </span>
-                    
-                </button>
+                <Link
+              to="portfolio"
+              smooth
+              duration={500}
+              className="group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
+            >
+              Portfolio
+              <span className="group-hover:rotate-90 duration-300">
+                < MdKeyboardArrowRight size={25} className="ml-1" />
+              </span>
+            </Link>
                 </div>
                <div>
-               <button className='group text-white w-fit px-6 py-3 my-2 flex items-center
-                rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer md:text-base
-                '>
-                    Contact Me
-                    <span className='group-hover:rotate-90 duration-300'> 
-                    <MdKeyboardArrowRight size={25} className='ml-1'/>
-                    </span>
-                    
-                </button>
+               <Link
+              to="contact"
+              smooth
+              duration={500}
+              className="group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
+            >
+              Contact Me
+              <span className="group-hover:rotate-90 duration-300">
+                < MdKeyboardArrowRight size={25} className="ml-1" />
+              </span>
+            </Link>
                </div>
                 
             </div>
 
         </div>
-        <div style={{paddingLeft:"70px"}}>
+        <div style={{paddingLeft:"70px",paddingTop:"50px"}}>
             <Hero/>
         </div>
        </div>
