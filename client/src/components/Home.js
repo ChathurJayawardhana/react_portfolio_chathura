@@ -1,12 +1,13 @@
 import React from 'react'
-import HeroImage from "../assets/heroImage.jpg";
+
 import { MdKeyboardArrowRight } from "react-icons/md";
+import Hero from '../layout/Hero';
 
 export default function Home() {
   return (
-    <div name="home" className='h-screen w-full bg-gradient-to-b from-black to-gray-600'>
+    <div name="home" className='h-screen w-full bg-gradient-to-b from-black to-gray-600 pt-16 md:pt-0'>
        <div className='max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row'>
-        <div className='flex flex-col justify-center h-full'>
+        <div className='flex flex-col justify-center h-full md:flex-grow'>
             <h2 className='text-4xl sm:text-7xl font-bold text-white'>
                 I am a Frontend Developer
             </h2>
@@ -16,21 +17,35 @@ export default function Home() {
             With expertise in HTML, CSS, JavaScript and ReactJS I specialize
              in translating design concepts into elegant and responsive interfaces."
             </p>
-            <div>
-                <button>
+            <div className='flex space-x-4'>
+                <div>
+                <button className='group text-white w-fit px-6 py-3 my-2 flex items-center
+                rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer md:text-base
+                '>
                     portfolio
-                    <span>
-                    <MdKeyboardArrowRight/>
+                    <span className='group-hover:rotate-90 duration-300'> 
+                    <MdKeyboardArrowRight size={25} className='ml-1'/>
                     </span>
                     
                 </button>
+                </div>
+               <div>
+               <button className='group text-white w-fit px-6 py-3 my-2 flex items-center
+                rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer md:text-base
+                '>
+                    Contact Me
+                    <span className='group-hover:rotate-90 duration-300'> 
+                    <MdKeyboardArrowRight size={25} className='ml-1'/>
+                    </span>
+                    
+                </button>
+               </div>
+                
             </div>
 
         </div>
-        <div>
-            <img src={HeroImage} alt='myheroimg'
-            className='rounded-2xl pl-4 mx-auto w-2/3 md:w-full '
-            />
+        <div style={{paddingLeft:"70px"}}>
+            <Hero/>
         </div>
        </div>
     </div>
