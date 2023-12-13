@@ -1,19 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-
 const Contact = () => {
-
-    const form = useRef();
+  const form = useRef();
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm('service_jtls1ij', 'template_61s9br9', form.current, '0EtHms-6Yi5rAQ7PL')
       .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
+        console.log(result.text);
+        setShowSnackbar(true);
+
+        // Auto-hide the snackbar after 3000 milliseconds (3 seconds)
+        setTimeout(() => {
+          setShowSnackbar(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error(error.text);
       });
   };
 
@@ -30,11 +36,8 @@ const Contact = () => {
           <p className="py-6">Submit the form below to get in touch with me</p>
         </div>
 
-        <div className=" flex justify-center items-center">
-          <form
-           ref={form} onSubmit={sendEmail}
-            className=" flex flex-col w-full md:w-1/2"
-          >
+        <div className="flex justify-center items-center">
+          <form ref={form} onSubmit={sendEmail} className="flex flex-col w-full md:w-1/2">
             <input
               type="text"
               name="user_name"
@@ -54,11 +57,19 @@ const Contact = () => {
               className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
             ></textarea>
 
-            <input type='submit' value="send"  className="text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300"/>
-              
-            
+            <input
+              type="submit"
+              value="send"
+              className="text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300"
+            />
           </form>
         </div>
+
+        {showSnackbar && (
+          <div className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-md">
+            <p className="text-sm">Submitted successfully!</p>
+          </div>
+        )}
       </div>
     </div>
   );

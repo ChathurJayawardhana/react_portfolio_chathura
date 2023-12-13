@@ -1,36 +1,34 @@
 import React from "react";
-import arrayDestruct from "../assets/portfolio/arrayDestruct.jpg";
-import installNode from "../assets/portfolio/installNode.jpg";
-import navbar from "../assets/portfolio/navbar.jpg";
-import reactParallax from "../assets/portfolio/reactParallax.jpg";
-import reactSmooth from "../assets/portfolio/reactSmooth.jpg";
-import reactWeather from "../assets/portfolio/reactWeather.jpg";
+import chatapp from "../assets/portfolio/chatapp.jpeg";
+import recipyapp from "../assets/portfolio/recipyapp.jpeg";
+import cjfashion from "../assets/portfolio/cjfashion.jpeg";
+import wether from "../assets/portfolio/weatherapp.jpeg";
 
 const Portfolio = () => {
+  const repositories = [
+    // Add your GitHub repository URLs here
+    "https://github.com/ChathurJayawardhana/chat_app",
+    "https://github.com/ChathurJayawardhana/recipee_app",
+    "https://github.com/ChathurJayawardhana/Cj_Fashion",
+    "https://github.com/ChathurJayawardhana/weathercj",
+  ];
+
   const portfolios = [
     {
       id: 1,
-      src: arrayDestruct,
+      src: chatapp,
     },
     {
       id: 2,
-      src: reactParallax,
+      src: recipyapp,
     },
     {
       id: 3,
-      src: navbar,
+      src: cjfashion,
     },
     {
       id: 4,
-      src: reactSmooth,
-    },
-    {
-      id: 5,
-      src: installNode,
-    },
-    {
-      id: 6,
-      src: reactWeather,
+      src: wether,
     },
   ];
 
@@ -56,10 +54,11 @@ const Portfolio = () => {
                 className="rounded-md duration-200 hover:scale-105"
               />
               <div className="flex items-center justify-center">
-                
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
-                  Code
-                </button>
+                <a href={repositories[id - 1]} target="_blank" rel="noopener noreferrer">
+                  <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
+                    Code
+                  </button>
+                </a>
               </div>
             </div>
           ))}
