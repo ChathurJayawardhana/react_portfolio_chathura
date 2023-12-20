@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div name="home" className='h-screen w-full bg-gradient-to-b from-black to-gray-600 pt-16 md:pt-0'>
        <div className='max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row'>
-        <div className='flex flex-col justify-center h-full md:flex-grow'>
-            <h2 className='text-4xl sm:text-7xl font-bold text-white'>
+        <div className='flex flex-col sm:pt-10 md:pt-10 justify-center h-full md:flex-grow'>
+            <h2 className='text-4xl sm:text-7xl  font-bold text-white'>
                 I am a Frontend Developer
             </h2>
             <p className='text-gray-400 py-4 max-w-md'>
